@@ -1,9 +1,6 @@
 # 🌌 Dotfiles
 <img src="https://img.shields.io/badge/LINUX-Fedora-blue?style=for-the-badge&logo=Fedora" />
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c1f30482-d9a0-4a63-85b9-37090828a8c8" />
-
-
 Bem-vindo ao meu repositório pessoal de dotfiles! Aqui você encontra o backup e a organização da minha configuração de sistema, focada em produtividade e minimalismo.
 
 ## 🖥️ Meu Setup

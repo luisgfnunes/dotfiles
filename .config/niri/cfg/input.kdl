@@ -24,7 +24,10 @@ input {
         accel-profile "flat"
         accel-speed 0.0
     }
-
+    
+    tablet {
+	calibration-matrix 0.0 -1.0 1.0 1.0 0.0 0.0
+    }
     focus-follows-mouse // Automatically focus windows under the mouse pointer
     workspace-auto-back-and-forth // Enable workspace back & forth switching
 }

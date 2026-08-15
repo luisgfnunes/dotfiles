@@ -1,9 +1,15 @@
     window-rule {
         geometry-corner-radius 0 
         clip-to-geometry true
+	
+	background-effect {
+	     blur true
+             xray false
+	}
     }
 
-     // if you use steam you will probably like these
+    // ----- window rules -----
+
     window-rule {
         match app-id="steam"
         exclude title=r#"^[Ss]team$"#
@@ -22,8 +28,38 @@
        default-column-width { fixed 1080; }
        default-window-height { fixed 920; }
     }
+		
+    // ----- layer rules -----
+    
+    layer-rule {
+       match namespace="^noctalia-backdrop"
+       place-within-backdrop true
+    }
+    
+    layer-rule {
+       match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+       background-effect {
+           xray false
+           // blur false
+       }
+    }
 
     layer-rule {
-    match namespace="^noctalia-backdrop"
-    place-within-backdrop true
+        match namespace="noctalia-window-switcher"
+        background-effect {
+            blur true
+            xray false
+       }
+    }
+
+    blur {
+        passes 2        // more passes = stronger blur (default: 3)
+        offset 3.0      // sample distance per pass (default: 3.0)
+        noise 0.00      // grain overlay (default: 0.02)
+        saturation 1  // color saturation boost (default: 1.5)
+    }
+
+    debug {
+       // Allows notification actions and window activation from Noctalia.
+       honor-xdg-activation-with-invalid-serial
     }

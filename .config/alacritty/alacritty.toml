@@ -4,10 +4,10 @@ import = [
 ]
 
 [font]
-# Defina a família da fonte principal
-normal = { family = "FiraCode Nerd Font", style = "Regular" }
-bold = { family = "FiraCode Nerd Font", style = "Bold" }
-italic = { family = "FiraCode Nerd Font", style = "Italic" }
+# Instale a fonte FiraCode Nerd antes de descomentar as linhas abaixo:
+# normal = { family = "FiraCode Nerd Font", style = "Regular" }
+# bold = { family = "FiraCode Nerd Font", style = "Bold" }
+# italic = { family = "FiraCode Nerd Font", style = "Italic" }
 
 # Tamanho da fonte
 size = 11.0

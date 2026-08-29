@@ -1,41 +1,56 @@
-# 🌌 Dotfiles
+# 🌌 Dotfiles (Branch: Hyprland)
 <img src="https://img.shields.io/badge/LINUX-Fedora-blue?style=for-the-badge&logo=Fedora" />
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ba4e59a4-17e4-456f-b893-ae931fe8003b" />
+<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/94ef9426-9dc8-465a-b4c3-fb62524273dc" />
 
-Bem-vindo ao meu repositório pessoal de dotfiles! Aqui você encontra o backup e a organização da minha configuração de sistema, focada em produtividade e minimalismo.
+Bem-vindo ao meu repositório pessoal de dotfiles! Esta branch contém o backup e a organização da minha configuração de sistema, focada em produtividade, minimalismo e um visual moderno.
 
 ## 🖥️ Meu Setup
 
 * **Sistema Operacional:** Fedora Linux 44 (Workstation Edition)
-* **Compositor (Wayland):** [Niri](https://github.com/YaLTeR/niri)
-* **Ambiente/Tema:** [Noctalia](https://github.com/noctalia-dev/noctalia)
+* **Compositor (Wayland):** [Hyprland](https://github.com/hyprwm/Hyprland)
+* **Ambiente/Interface:** [dots-hyprland (end-4)](https://github.com/end-4/dots-hyprland)
+* **Cursor:** Bibata Modern Classic
+* **Integração Flatpak:** Ajustes de permissão e variáveis de ambiente para que aplicativos em sandbox (como o Prism Launcher) respeitem o tema de janelas, ícones e o cursor do sistema nativamente.
 
-## ⚙️ Instalação do WM e Shell
+## ⚙️ Instalação Base
+
+A instalação do ambiente é feita através do script principal do end-4, que já possui suporte para detectar o Fedora, habilitar os repositórios Copr necessários e compilar as dependências locais via `dnf`:
+
 ```bash
-sudo dnf5 install niri
-sudo dnf5 install noctalia # utiliza a v5 do repositorio oficial
+# Atualize o sistema
+sudo dnf upgrade --refresh
+
+# Clone o repositório oficial do end-4
+git clone https://github.com/end-4/dots-hyprland.git ~/.cache/dots-hyprland
+
+# Execute o instalador
+cd ~/.cache/dots-hyprland
+./setup install
+
 ```
 
 ## 📂 Estrutura Modular
 
-Este repositório está organizado de forma modular para facilitar a manutenção e a aplicação das configurações:
+Este repositório armazena as **minhas modificações pessoais** aplicadas sobre a base do end-4. A estrutura está organizada da seguinte forma:
 
-* 📁 **`niri/`**: Contém todas as configurações exclusivas do compositor Niri (atalhos de teclado, regras de layout, animações e comportamentos de janelas).
+* 📁 **`hypr/`**: Contém as minhas configurações exclusivas do compositor (atalhos de teclado, regras de layout, animações e comportamentos de janelas).
+* 📁 **`alacritty/`**: Configurações e temas do emulador de terminal.
 
-## 🚀 Setup e Uso
+## 🚀 Setup e Uso das Minhas Configurações
 
-Para aplicar estas configurações na sua máquina, você pode clonar este repositório e criar links simbólicos (symlinks) para a pasta `~/.config`, ou simplesmente copiar os arquivos.
-Obs.: alguns paths podem estar configurados como meu user: "hikari"
+Para aplicar os meus ajustes específicos (após rodar o script de instalação base acima), você pode clonar esta branch e sobrescrever os arquivos na sua pasta `~/.config`.
+*Obs.: alguns paths podem estar configurados com o meu user: "hikari".*
 
 ```bash
-# Clone este repositório
-git clone https://github.com/LuisGFNunes/dotfiles.git ~/.dotfiles
+# Clone este repositório diretamente na branch do Hyprland
+git clone -b dots/hypr [https://github.com/LuisGFNunes/dotfiles.git](https://github.com/LuisGFNunes/dotfiles.git) ~/.dotfiles
 
 # Entre no diretório
 cd ~/.dotfiles
 
-# Copie os diretórios para a sua pasta de configurações
-cp -r niri ~/.config/
-cp -r noctalia ~/.config/
+# Copie os diretórios modificados para a sua pasta de configurações
+cp -r hypr ~/.config/
 cp -r alacritty ~/.config/
+
+```

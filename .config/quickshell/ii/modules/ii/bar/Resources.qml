@@ -47,7 +47,7 @@ MouseArea {
 
         Resource {
             iconName: "thermostat"
-	    percentage: ResourceUsage.cpuTemperature / 100
+	        percentage: ResourceUsage.cpuTemperature / 100
             Layout.leftMargin: 6
             warningThreshold: 80
         }

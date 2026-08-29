@@ -1,7 +1,7 @@
 # 🌌 Dotfiles (Branch: Hyprland)
 <img src="https://img.shields.io/badge/LINUX-Fedora-blue?style=for-the-badge&logo=Fedora" />
 
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/94ef9426-9dc8-465a-b4c3-fb62524273dc" />
+<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/b3af74bf-24f4-4a20-bddf-9c7bf5e693f1" />
 
 Bem-vindo ao meu repositório pessoal de dotfiles! Esta branch contém o backup e a organização da minha configuração de sistema, focada em produtividade, minimalismo e um visual moderno.
 

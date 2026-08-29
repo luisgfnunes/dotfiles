@@ -44,7 +44,7 @@ Para aplicar os meus ajustes específicos (após rodar o script de instalação 
 
 ```bash
 # Clone este repositório diretamente na branch do Hyprland
-git clone -b dots/hypr [https://github.com/LuisGFNunes/dotfiles.git](https://github.com/LuisGFNunes/dotfiles.git) ~/.dotfiles
+git clone -b dots/hypr https://github.com/LuisGFNunes/dotfiles.git ~/.dotfiles
 
 # Entre no diretório
 cd ~/.dotfiles

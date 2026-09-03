@@ -1,46 +1,42 @@
 # 🌌 Dotfiles (Branch: Hyprland)
-<img src="https://img.shields.io/badge/LINUX-Fedora-blue?style=for-the-badge&logo=Fedora" />
-
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/b3af74bf-24f4-4a20-bddf-9c7bf5e693f1" />
+<img src="https://img.shields.io/badge/LINUX-Arch_Linux-1793D1?style=for-the-badge&logo=archlinux&logoColor=white" />
 
 Bem-vindo ao meu repositório pessoal de dotfiles! Esta branch contém o backup e a organização da minha configuração de sistema, focada em produtividade, minimalismo e um visual moderno.
 
 ## 🖥️ Meu Setup
 
-* **Sistema Operacional:** Fedora Linux 44 (Workstation Edition)
+* **Sistema Operacional:** Arch Linux
 * **Compositor (Wayland):** [Hyprland](https://github.com/hyprwm/Hyprland)
-* **Ambiente/Interface:** [dots-hyprland (end-4)](https://github.com/end-4/dots-hyprland)
-* **Cursor:** Bibata Modern Classic
-* **Integração Flatpak:** Ajustes de permissão e variáveis de ambiente para que aplicativos em sandbox (como o Prism Launcher) respeitem o tema de janelas, ícones e o cursor do sistema nativamente.
+* **Ambiente/Interface:** [Noctalia](https://github.com/noctalia-dev/noctalia)
+* **Cursor:** Bibata Modern Ice
 
 ## ⚙️ Instalação Base
 
-A instalação do ambiente é feita através do script principal do end-4, que já possui suporte para detectar o Fedora, habilitar os repositórios Copr necessários e compilar as dependências locais via `dnf`:
+A instalação do ambiente e de suas dependências no Arch Linux pode ser feita utilizando os repositórios oficiais e o AUR (`pacman` / `yay` ou `paru`):
 
 ```bash
 # Atualize o sistema
-sudo dnf upgrade --refresh
+sudo pacman -Syu
 
-# Clone o repositório oficial do end-4
-git clone https://github.com/end-4/dots-hyprland.git ~/.cache/dots-hyprland
+# Pacotes essenciais do Hyprland e utilitários
+sudo pacman -S hyprland hyprpaper hyprlock hypridle xdg-desktop-portal-hyprland \
+                kitty qt5-wayland qt6-wayland nwg-look pipewire wireplumber brightnessctl
 
-# Execute o instalador
-cd ~/.cache/dots-hyprland
-./setup install
-
+# Instale o Noctalia 
+sudo pacman -S noctalia
 ```
 
 ## 📂 Estrutura Modular
 
-Este repositório armazena as **minhas modificações pessoais** aplicadas sobre a base do end-4. A estrutura está organizada da seguinte forma:
+Este repositório armazena as **minhas modificações e configurações pessoais**. A estrutura está organizada da seguinte forma:
 
-* 📁 **`hypr/`**: Contém as minhas configurações exclusivas do compositor (atalhos de teclado, regras de layout, animações e comportamentos de janelas).
+* 📁 **`hypr/`**: Contém as configurações do compositor (atalhos de teclado, regras de layout, animações, regras de janelas e integração com o Noctalia).
 * 📁 **`alacritty/`**: Configurações e temas do emulador de terminal.
 
 ## 🚀 Setup e Uso das Minhas Configurações
 
-Para aplicar os meus ajustes específicos (após rodar o script de instalação base acima), você pode clonar esta branch e sobrescrever os arquivos na sua pasta `~/.config`.
-*Obs.: alguns paths podem estar configurados com o meu user: "hikari".*
+Para aplicar os meus ajustes específicos no seu sistema, clone esta branch e copie/vincule os arquivos para a sua pasta `~/.config`.
+*Obs.: certifique-se de ajustar caminhos específicos do usuário se necessário.*
 
 ```bash
 # Clone este repositório diretamente na branch do Hyprland
@@ -49,8 +45,7 @@ git clone -b dots/hypr https://github.com/LuisGFNunes/dotfiles.git ~/.dotfiles
 # Entre no diretório
 cd ~/.dotfiles
 
-# Copie os diretórios modificados para a sua pasta de configurações
+# Copie os diretórios de configuração para a pasta ~/.config
 cp -r hypr ~/.config/
 cp -r alacritty ~/.config/
-
 ```

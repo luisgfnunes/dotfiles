@@ -12,7 +12,7 @@ Meu setup focado em navegação por scroll (scrollable tiling) e minimalismo.
 * **Compositor (Wayland):** Niri
 * **Ambiente/Interface:** Noctalia
 
-### 2. [dots/hypr](https://github.com/LuisGFNunes/dotfiles/tree/dots/hypr)
+### 2. [dots/hypr](https://github.com/LuisGFNunes/dotfiles/tree/dots/hypr) [Setup Atual]
 Meu setup dinâmico, rico em animações e altamente customizado.
 * **Sistema Operacional:** Arch Linux
 * **Compositor (Wayland):** Hyprland

@@ -14,9 +14,9 @@ Meu setup focado em navegação por scroll (scrollable tiling) e minimalismo.
 
 ### 2. [dots/hypr](https://github.com/LuisGFNunes/dotfiles/tree/dots/hypr)
 Meu setup dinâmico, rico em animações e altamente customizado.
-* **Sistema Operacional:** Fedora Linux 44
+* **Sistema Operacional:** Arch Linux
 * **Compositor (Wayland):** Hyprland
-* **Ambiente/Interface:** dots-hyprland (end-4)
+* **Ambiente/Interface:** Noctalia
 
 ---
 

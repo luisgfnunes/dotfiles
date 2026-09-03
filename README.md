@@ -51,3 +51,6 @@ cd ~/.dotfiles
 cp -r hypr ~/.config/
 cp -r alacritty ~/.config/
 ```
+## 📜 Créditos
+
+* **[CachyOS Hyprland Settings](https://github.com/CachyOS/cachyos-hyprland-settings):** Repositório base utilizado para a estrutura e configurações iniciais do Hyprland.

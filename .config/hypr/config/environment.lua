@@ -10,8 +10,9 @@
 -- hl.env("__GL_GSYNC_ALLOWED", "1") -- Controls if G-Sync capable monitors should use Variable Refresh Rate (VRR)
 
 env = {
-    "XCURSOR_THEME, Bibata-Modern-Ice",
+    "XCURSOR_THEME, Adwaita",
     "XCURSOR_SIZE, 24",
-    "HYPRCURSOR_THEME, Bibata-Modern-Ice",
-    "HYPRCURSOR_SIZE, 24"
+    "HYPRCURSOR_THEME, Adwaita",
+    "HYPRCURSOR_SIZE, 24",
+    "GTK_THEME, Adwaita:dark"
 }

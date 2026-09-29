@@ -1,7 +1,7 @@
 # 🌌 Dotfiles (Branch: Hyprland)
 <img src="https://img.shields.io/badge/LINUX-Arch_Linux-1793D1?style=for-the-badge&logo=archlinux&logoColor=white" />
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/09102f8f-4401-4e33-8ff0-9c545b3c4888" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b7364f3f-90e5-414a-b096-ae29315d5c7b" />
 
 Bem-vindo ao meu repositório pessoal de dotfiles! Esta branch contém o backup e a organização da minha configuração de sistema, focada em produtividade, minimalismo e um visual moderno.
 
@@ -10,7 +10,6 @@ Bem-vindo ao meu repositório pessoal de dotfiles! Esta branch contém o backup 
 * **Sistema Operacional:** Arch Linux
 * **Compositor (Wayland):** [Hyprland](https://github.com/hyprwm/Hyprland)
 * **Ambiente/Interface:** [Noctalia](https://github.com/noctalia-dev/noctalia)
-* **Cursor:** Bibata Modern Ice
 
 ## ⚙️ Instalação Base
 

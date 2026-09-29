@@ -162,3 +162,7 @@ hl.bind(mainMod .. " + CONTROL + mouse_down", hl.dsp.focus({ workspace = "m+1" }
 -- Special workspace (scratchpad)
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special" }))
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special())
+
+hl.bind(mainMod .. " + M", function()
+    os.execute("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle")
+end)

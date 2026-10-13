@@ -41,5 +41,3 @@ Comando | O que faz |
 | **`nh clean all`** | Remove todas as gerações antigas do NixOS e do Home Manager para liberar espaço em disco. |
 | **`nh clean all --keep 3`** | Executa a limpeza, mas preserva as últimas 3 versões do sistema no menu de boot por segurança. |
 | **`nh search [pacote]`** | Realiza uma busca rápida por programas disponíveis no repositório do Nix. |
-
-```

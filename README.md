@@ -1,32 +1,55 @@
-# Dotfiles
+# ❄️ NixOS Configuration Flake
 
-Bem-vindo ao meu repositório de arquivos de configuração (dotfiles). Este repositório está estruturado em branches independentes para manter diferentes ambientes de trabalho separados, permitindo uma transição limpa entre diferentes compositores Wayland no Fedora Linux.
-
-Selecione a branch correspondente ao ambiente que você deseja explorar ou instalar:
-
-## Branches Disponíveis
-
-### 1. [dots/niri](https://github.com/LuisGFNunes/dotfiles/tree/dots/niri)
-Meu setup focado em navegação por scroll (scrollable tiling) e minimalismo.
-* **Sistema Operacional:** Fedora Linux 44
-* **Compositor (Wayland):** Niri
-* **Ambiente/Interface:** Noctalia
-
-### 2. [dots/hypr](https://github.com/LuisGFNunes/dotfiles/tree/dots/hypr) [Setup Atual]
-Meu setup dinâmico, rico em animações e altamente customizado.
-* **Sistema Operacional:** Arch Linux
-* **Compositor (Wayland):** Hyprland
-* **Ambiente/Interface:** Noctalia
+Minha configuração declarativa para **NixOS** gerenciada via **Nix Flakes**, **Disko** e o compositor Wayland **Umbriel** (do ecossistema Noctalia).
 
 ---
 
-## Como utilizar
+## 🛠️--- Arquitetura do Sistema ---
+ 
+- **OS**: NixOS (Branch Unstable)
+- **Gerenciador de Partição**: [Disko](https://github.com/nix-community/disko) (Btrfs com compressão `zstd`)
+- **Compositor / Ambiente**: [Umbriel](https://github.com/noctalia-dev/umbriel)
+- **Display Manager**: SDDM (Wayland)
+- **Gerenciamento de Sistema**: Nix Flakes + Git
 
-Para clonar e aplicar uma configuração específica na sua máquina (substitua os arquivos na sua pasta `~/.config`), utilize o parâmetro `-b` no Git para baixar diretamente a branch desejada:
+---
+
+## --- Estrutura de Arquivos ---
+
+```text
+/etc/nixos/
+├── flake.nix                  # Ponto de entrada das dependências e configurações
+├── flake.lock                 # Trava de versões exatas das dependências
+├── configuration.nix          # Configurações gerais do sistema e pacotes
+├── hardware-configuration.nix # Módulos de kernel e drivers de hardware
+└── disko-config.nix           # Esquema de particionamento Btrfs via Disko
+
+```
+
+---
+
+## --- Comandos Rápidos ---
+
+### 🔄 Reconstruir e aplicar alterações no sistema
 
 ```bash
-# Para o ambiente Niri:
-git clone -b dots/niri https://github.com/LuisGFNunes/dotfiles.git ~/.dotfiles
+cd /etc/nixos
+git add .
+sudo nixos-rebuild switch --flake .#nixos
+```
 
-# Para o ambiente Hyprland:
-git clone -b dots/hypr https://github.com/LuisGFNunes/dotfiles.git ~/.dotfiles
+### 📦 Atualizar todas as dependências (Flakes)
+
+```bash
+cd /etc/nixos
+nix flake update
+git add flake.lock
+sudo nixos-rebuild switch --flake .#nixos
+```
+
+### 🧹 Limpar gerações antigas e liberar espaço em disco
+
+```bash
+sudo nix-collect-garbage -d
+```
+

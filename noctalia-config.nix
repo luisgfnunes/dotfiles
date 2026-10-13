@@ -27,7 +27,7 @@
       wallpaper = {
         enabled = true;
         # AJUSTE AQUI: coloque o caminho real para uma imagem válida
-        # default.path = "/home/drfoobar/Imagens/meu_wallpaper.png"; 
+        # default.path = "/home/blue/Imagens/meu_wallpaper.png"; 
       };
     };
   };

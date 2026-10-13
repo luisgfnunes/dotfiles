@@ -9,11 +9,21 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
+  boot.loader.systemd-boot.configurationLimit = 4;
+ 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-	
-  networking.hostName = "nixos";
-  networking.networkmanager.enable = true;
+  
+  nix.gc = {
+    automatic = true;
+    dates = "weekly"; 
+    options = "--delete-generations +4"; 
+  };	
+
+  networking = {
+    hostName = "nixos";
+    networkmanager.enable = true;
+    firewall.checkReversePath = false;
+  };
 
   time.timeZone = "America/Sao_Paulo";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -89,6 +99,8 @@
     vscode
     neovim
     python3
+    proton-vpn
+    wireguard-tools
     # --- Utilitarios de Terminal & Sistema
     kitty
     ripgrep
@@ -98,11 +110,32 @@
     wget
     curl
     power-profiles-daemon
+    p7zip
+    scrcpy
+    android-tools
+    nwg-look
+    # -- KDE Packages --- 
     kdePackages.dolphin
     kdePackages.dolphin-plugins
-    kdePackages.ark      
-    p7zip 
+    kdePackages.ark         
+    kdePackages.breeze        
+    kdePackages.breeze-icons
+    kdePackages.sddm-kcm 
+    kdePackages.knewstuff
+    kdePackages.qtmultimedia  
   ];
+
+  fonts.packages = with pkgs; [
+    # Interface e Web Geral
+    inter
+    noto-fonts
+    # Código e Ícones (Terminal)
+    nerd-fonts.jetbrains-mono
+    font-awesome
+    # Suporte Internacional e Emojis
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
+  ];  
 
   hardware.bluetooth = {
     enable = true;
@@ -114,12 +147,13 @@
       };
     };
   };
-
+   
+  services.desktopManager.plasma6.enable = true;
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
   };
-
+  
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;  
   services.pipewire = {
@@ -131,12 +165,12 @@
     wireplumber.enable = true;
   };
   services.power-profiles-daemon.enable = true;
-  services.upower.enable = false;
+  services.upower.enable = true;
 
   programs.firefox.enable = true;
   programs.umbriel.enable = true;
   programs.fish.enable = true;
-	
+ 
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 80 443 22 ];

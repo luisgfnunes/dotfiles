@@ -38,15 +38,21 @@
           ./disko-config.nix
           ./hardware-configuration.nix
           ./configuration.nix
+          
+          # Módulo do Home Manager
           home-manager.nixosModules.home-manager
           {
-            home-manager.extraSpecialArgs = { inherit inputs; };
-          
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-          
-            # Importa o arquivo onde você colocou o código do Noctalia
-            home-manager.users.blue = import ./noctalia-config.nix; 
+            # Bloco de configuração do Home Manager
+            home-manager = {
+              extraSpecialArgs = { inherit inputs; };
+              
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "backup";
+
+              # Importa a configuração pessoal
+              users.blue = import ./noctalia-config.nix;
+            };
           }
         ];
       };

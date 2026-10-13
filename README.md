@@ -12,10 +12,16 @@ Meu setup focado em navegação por scroll (scrollable tiling) e minimalismo.
 * **Compositor (Wayland):** Niri
 * **Ambiente/Interface:** Noctalia
 
-### 2. [dots/hypr](https://github.com/LuisGFNunes/dotfiles/tree/dots/hypr) [Setup Atual]
+### 2. [dots/hypr](https://github.com/LuisGFNunes/dotfiles/tree/dots/hypr)
 Meu setup dinâmico, rico em animações e altamente customizado.
 * **Sistema Operacional:** Arch Linux
 * **Compositor (Wayland):** Hyprland
+* **Ambiente/Interface:** Noctalia
+
+### 3. [dots/umbriel](https://github.com/LuisGFNunes/dotfiles/tree/dots/umbriel) [Setup Atual]
+Meu setup declarativo-atômico focado em produtividade e estabilidade
+* **Sistema Operacional:** NixOS
+* **Compositor (Wayland):** Umbriel
 * **Ambiente/Interface:** Noctalia
 
 ---

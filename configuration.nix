@@ -15,7 +15,7 @@
   
   nix.gc = {
     automatic = true;
-    dates = "weekly"; 
+    dates = "daily"; 
     options = "--delete-generations +4"; 
   };	
 
@@ -67,17 +67,28 @@
       vim
     ];
   };
-       
+  
   xdg.portal = {
     enable = true;
+    
     extraPortals = with pkgs; [
+      kdePackages.xdg-desktop-portal-kde
       xdg-desktop-portal-gtk
     ];
-    config.common = {
-      default = [ "umbriel" "gtk" ];
-    };
-  };
 
+    config = {
+      common = {
+        default = [ "gtk" ];
+      };
+      kde = {
+        default = [ "kde" "gtk" ];
+      };
+      umbriel = {
+        default = [ "umbriel" "gtk" ];
+      };
+    };
+  };     
+  
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     # --- Navegadores & Comunicacao ---
@@ -120,22 +131,44 @@
     kdePackages.ark         
     kdePackages.breeze        
     kdePackages.breeze-icons
-    kdePackages.sddm-kcm 
     kdePackages.knewstuff
-    kdePackages.qtmultimedia  
+    kdePackages.qtmultimedia
+    kdePackages.qtsvg  
   ];
 
   fonts.packages = with pkgs; [
     # Interface e Web Geral
     inter
     noto-fonts
+    liberation_ttf
+    inter
     # Código e Ícones (Terminal)
     nerd-fonts.jetbrains-mono
+    fira-code
     font-awesome
     # Suporte Internacional e Emojis
     noto-fonts-cjk-sans
     noto-fonts-color-emoji
-  ];  
+  ];
+
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      serif = [ "Noto Serif" "Liberation Serif" ];
+      sansSerif = [ "Inter" "Noto Sans" "Liberation Sans" ];
+      monospace = [ "JetBrains Mono" "Fira Code" ];
+      emoji = [ "Noto Color Emoji" ];
+    };
+    
+    subpixel = {
+      rgba = "rgb";
+      lcdfilter = "default";
+    };
+    hinting = {
+      enable = true;
+      style = "slight";
+    };
+  };  
 
   hardware.bluetooth = {
     enable = true;
@@ -147,11 +180,17 @@
       };
     };
   };
-   
+  
   services.desktopManager.plasma6.enable = true;
-  services.displayManager.sddm = {
+  services.displayManager.sessionPackages = [ pkgs.umbriel ];  
+  services.greetd = {
     enable = true;
-    wayland.enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-session --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions --cmd startplasma-wayland";
+        user = "greeter";
+      };
+    };
   };
   
   services.pulseaudio.enable = false;
@@ -166,7 +205,9 @@
   };
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
-
+  
+  services.flatpak.enable = true; 
+ 
   programs.firefox.enable = true;
   programs.umbriel.enable = true;
   programs.fish.enable = true;

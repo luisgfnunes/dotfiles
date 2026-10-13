@@ -6,19 +6,19 @@ Selecione a branch correspondente ao ambiente que você deseja explorar ou insta
 
 ## Branches Disponíveis
 
-### 1. [dots/niri](https://github.com/LuisGFNunes/dotfiles/tree/dots/niri)
+### 1. [fedora](https://github.com/LuisGFNunes/dotfiles/tree/dots/niri)
 Meu setup focado em navegação por scroll (scrollable tiling) e minimalismo.
 * **Sistema Operacional:** Fedora Linux 44
 * **Compositor (Wayland):** Niri
 * **Ambiente/Interface:** Noctalia
 
-### 2. [dots/hypr](https://github.com/LuisGFNunes/dotfiles/tree/dots/hypr)
+### 2. [arch](https://github.com/LuisGFNunes/dotfiles/tree/dots/hypr)
 Meu setup dinâmico, rico em animações e altamente customizado.
 * **Sistema Operacional:** Arch Linux
 * **Compositor (Wayland):** Hyprland
 * **Ambiente/Interface:** Noctalia
 
-### 3. [dots/umbriel](https://github.com/LuisGFNunes/dotfiles/tree/dots/umbriel) [Setup Atual]
+### 3. [nix_os](https://github.com/LuisGFNunes/dotfiles/tree/dots/umbriel) [Setup Atual]
 Meu setup declarativo-atômico focado em produtividade e estabilidade
 * **Sistema Operacional:** NixOS
 * **Compositor (Wayland):** Umbriel

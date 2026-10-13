@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports =
@@ -13,12 +13,6 @@
  
   boot.kernelPackages = pkgs.linuxPackages_latest;
   
-  nix.gc = {
-    automatic = true;
-    dates = "daily"; 
-    options = "--delete-generations +4"; 
-  };	
-
   networking = {
     hostName = "nixos";
     networkmanager.enable = true;
@@ -70,7 +64,8 @@
   
   xdg.portal = {
     enable = true;
-    
+    wlr.enable = true; 
+   
     extraPortals = with pkgs; [
       kdePackages.xdg-desktop-portal-kde
       xdg-desktop-portal-gtk
@@ -125,6 +120,7 @@
     scrcpy
     android-tools
     nwg-look
+    inputs.umbriel.packages.${pkgs.system}.default
     # -- KDE Packages --- 
     kdePackages.dolphin
     kdePackages.dolphin-plugins
@@ -212,6 +208,13 @@
   programs.umbriel.enable = true;
   programs.fish.enable = true;
  
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/etc/nixos";
+  }; 
+  
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 80 443 22 ];

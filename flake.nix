@@ -9,13 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    umbriel = {
-      url = "github:noctalia-dev/umbriel";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    
+    umbriel.url = "github:noctalia-dev/umbriel/cachix";
+         
     noctalia = {
-      url = "github:noctalia-dev/noctalia";
+      url = "github:noctalia-dev/noctalia/cachix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
    

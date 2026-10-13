@@ -21,7 +21,7 @@ Meu setup dinâmico, rico em animações e altamente customizado.
 ### 3. [nix_os](https://github.com/LuisGFNunes/dotfiles/tree/dots/umbriel) [Setup Atual]
 Meu setup declarativo-atômico focado em produtividade e estabilidade
 * **Sistema Operacional:** NixOS
-* **Compositor (Wayland):** Umbriel
+* **Compositor (Wayland):** Umbriel & KDE Plasma
 * **Ambiente/Interface:** Noctalia
 
 ---
@@ -31,8 +31,11 @@ Meu setup declarativo-atômico focado em produtividade e estabilidade
 Para clonar e aplicar uma configuração específica na sua máquina (substitua os arquivos na sua pasta `~/.config`), utilize o parâmetro `-b` no Git para baixar diretamente a branch desejada:
 
 ```bash
-# Para o ambiente Niri:
-git clone -b dots/niri https://github.com/LuisGFNunes/dotfiles.git ~/.dotfiles
+# Para o ambiente fedora:
+git clone -b fedora https://github.com/luisgfNunes/dotfiles.git ~/dotfiles
 
-# Para o ambiente Hyprland:
-git clone -b dots/hypr https://github.com/LuisGFNunes/dotfiles.git ~/.dotfiles
+# Para o ambiente arch:
+git clone -b arch https://github.com/luisgfnunes/dotfiles.git ~/dotfiles
+
+# Para o ambiente nix_os:
+git clone -b nix_os https://github.com/luisgfNunes/dotfiles.git ~/dotfiles

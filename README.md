@@ -1,6 +1,6 @@
 # Dotfiles
 
-Bem-vindo ao meu repositório de arquivos de configuração (dotfiles). Este repositório está estruturado em branches independentes para manter diferentes ambientes de trabalho separados, permitindo uma transição limpa entre diferentes compositores Wayland no Fedora Linux.
+Bem-vindo ao meu repositório de arquivos de configuração (dotfiles). Este repositório está estruturado em branches independentes para manter diferentes ambientes de trabalho separados, permitindo uma transição limpa entre diferentes compositores Wayland em diferentes distros Linux.
 
 Selecione a branch correspondente ao ambiente que você deseja explorar ou instalar:
 

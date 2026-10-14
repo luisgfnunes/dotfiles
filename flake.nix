@@ -10,12 +10,8 @@
     };
 
     umbriel.url = "github:noctalia-dev/umbriel/cachix";
-         
-    noctalia = {
-      url = "github:noctalia-dev/noctalia/cachix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-   
+    noctalia.url = "github:noctalia-dev/noctalia/cachix";
+      
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,6 +28,7 @@
         modules = [
           inputs.disko.nixosModules.disko
           inputs.umbriel.nixosModules.default
+          inputs.noctalia.nixosModules.default
           ./disko-config.nix
           ./hardware-configuration.nix
           ./configuration.nix
@@ -39,7 +36,6 @@
           # Módulo do Home Manager
           home-manager.nixosModules.home-manager
           {
-            # Bloco de configuração do Home Manager
             home-manager = {
               extraSpecialArgs = { inherit inputs; };
               
@@ -47,8 +43,7 @@
               useUserPackages = true;
               backupFileExtension = "backup";
 
-              # Importa a configuração pessoal
-              users.blue = import ./noctalia-config.nix;
+              users.blue = import ./home.nix;
             };
           }
         ];

@@ -1,22 +1,54 @@
 { inputs, pkgs, ... }: 
 {
-  imports = [
-    inputs.noctalia.homeModules.default
-  ];
-  
-  nix.settings = {
-    extra-substituters = [ "https://noctalia.cachix.org" ];
-    extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
-  };
-
   home.username = "blue";
   home.homeDirectory = "/home/blue";
   home.stateVersion = "26.05"; 
+
+  programs.home-manager.enable = true;
 
   xdg.userDirs = {
     enable = true;
     createDirectories = true;
   };
+
+  # --- PACOTES DO UTILIZADOR ---
+  home.packages = with pkgs; [
+    # Navegadores & Comunicação
+    fastfetch
+    
+    # Áudio, Vídeo e Mídia
+    pavucontrol
+    mpv
+    cava
+    grim
+    slurp
+    wl-clipboard
+    nwg-look
+    
+    # Desenvolvimento & Programação
+    vscode
+    neovim
+    python3
+    proton-vpn
+    wireguard-tools
+    
+    # Utilitários de Terminal & Sistema
+    kitty
+    ripgrep
+    fzf
+    scrcpy
+    android-tools
+    
+    # KDE Packages
+    kdePackages.dolphin
+    kdePackages.dolphin-plugins
+    kdePackages.ark         
+    kdePackages.breeze        
+    kdePackages.breeze-icons
+    kdePackages.knewstuff
+    kdePackages.qtmultimedia
+    kdePackages.qtsvg  
+  ];
 
   # --- CONFIGURAÇÕES DE TEMA BREEZE DARK ---
   gtk = {
@@ -52,21 +84,4 @@
   home.sessionVariables = {
     GTK_THEME = "Breeze-Dark";
   };
-  # -----------------------------------------
-  programs.noctalia = {
-    enable = true;
-    package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default; 
- 
-    settings = {
-      # theme = {
-      #   mode = "dark";
-      #   source = "builtin";
-      #   builtin = "Catppuccin";
-      # };
-
-      wallpaper = {
-        enabled = true;
-      };
-    };
-  }; 
 }

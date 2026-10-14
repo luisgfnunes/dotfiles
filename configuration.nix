@@ -11,7 +11,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 4;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  
+    
   # --- REDE ---
   networking = {
     hostName = "nixos";
@@ -69,12 +69,10 @@
     enable = true;
     wlr.enable = true; 
     extraPortals = with pkgs; [
-      kdePackages.xdg-desktop-portal-kde
       xdg-desktop-portal-gtk
     ];
     config = {
       common.default = [ "gtk" ];
-      kde.default = [ "kde" "gtk" ];
       umbriel.default = [ "umbriel" "gtk" ];
     };
   };     
@@ -93,7 +91,7 @@
     htop
     power-profiles-daemon
     wireplumber
-    inputs.umbriel.packages.${pkgs.stdenv.hostPlatform.system}.default # Aviso system corrigido aqui
+    inputs.umbriel.packages.${pkgs.stdenv.hostPlatform.system}.default 
   ];
 
   # --- FONTES ---
@@ -137,17 +135,17 @@
     };
   };
   
-  services.desktopManager.plasma6.enable = true;
+  services.xserver.enable = true;
   services.displayManager.sessionPackages = [ pkgs.umbriel ];  
   services.greetd = {
     enable = true;
-    settings.default_session = {
-      command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-session --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions --cmd 'env XDG_SESSION_TYPE=wayland XDG_CURRENT_DESKTOP=KDE startplasma-wayland'";
-      user = "greeter";
+    settings = {
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd umbriel";
+        user = "greeter";
+      };
     };
   };
-  
-  services.xserver.enable = true;
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;  
   services.pipewire = {

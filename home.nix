@@ -63,7 +63,7 @@
     };
     iconTheme = {
       name = "WhiteSur-dark";
-      package = pkgs.kdePackages.breeze-icons;
+      package = pkgs.whitesur-icon-theme;
     };
     cursorTheme = {
       name = "breeze_cursors";

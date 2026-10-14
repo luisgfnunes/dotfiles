@@ -5,6 +5,10 @@
   home.stateVersion = "26.05"; 
 
   programs.home-manager.enable = true;
+  programs.fish = {
+    enable = true;
+    shellAbbrs = { "nh" = "NIX_CONFIG='experimental-features = nix-command flakes' nh"; };
+  };  
 
   xdg.userDirs = {
     enable = true;
@@ -58,7 +62,7 @@
       package = pkgs.kdePackages.breeze-gtk; 
     };
     iconTheme = {
-      name = "breeze-dark";
+      name = "WhiteSur-dark";
       package = pkgs.kdePackages.breeze-icons;
     };
     cursorTheme = {
@@ -83,5 +87,7 @@
 
   home.sessionVariables = {
     GTK_THEME = "Breeze-Dark";
+    NIX_CONFIG = "experimental-features = nix-command flakes";
+    FLAKE = "/etc/nixos";
   };
 }

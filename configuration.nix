@@ -180,6 +180,12 @@
     recommendedServices.enable = true;      
   };
 
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
+
   # --- NIX SETTINGS & CACHES ---
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];

@@ -4,6 +4,10 @@ Minha configuração declarativa para **NixOS** gerenciada via **Nix Flakes**, *
 
 ---
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4a669f41-6160-4860-9472-c82eacc8e5eb" />
+
+---
+
 ## 🛠️--- Arquitetura do Sistema ---
 
 - **OS**: NixOS (Branch Unstable)

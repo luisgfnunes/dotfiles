@@ -1,9 +1,9 @@
-{ inputs, pkgs, ... }: 
+{ inputs, pkgs, lib, ... }: 
 {
   home.username = "blue";
   home.homeDirectory = "/home/blue";
   home.stateVersion = "26.05"; 
-
+  
   programs.home-manager.enable = true;
   programs.fish = {
     enable = true;
@@ -28,7 +28,8 @@
     slurp
     wl-clipboard
     nwg-look
-    
+    obs-studio    
+
     # Desenvolvimento & Programação
     vscode
     neovim
@@ -36,23 +37,28 @@
     proton-vpn
     wireguard-tools
     godot_4	
-    
+    inputs.antigravity-nix.packages.${pkgs.system}.google-antigravity
+    inputs.antigravity-nix.packages.${pkgs.system}.google-antigravity-ide   
+ 
     # Utilitários de Terminal & Sistema
     kitty
+    nautilus
     ripgrep
     fzf
     scrcpy
     android-tools
-    
+    whitesur-icon-theme
+    whitesur-gtk-theme
+
     # KDE Packages
-    kdePackages.dolphin
-    kdePackages.dolphin-plugins
     kdePackages.ark         
     kdePackages.breeze        
     kdePackages.breeze-icons
     kdePackages.knewstuff
     kdePackages.qtmultimedia
-    kdePackages.qtsvg  
+    kdePackages.qtwayland
+    kdePackages.qtsvg
+ 
   ];
 
   # --- CONFIGURAÇÕES DE TEMA BREEZE DARK ---
@@ -83,12 +89,14 @@
     enable = true;
     platformTheme.name = "gtk3";
     style.name = "breeze";
-    style.package = pkgs.kdePackages.breeze;
-  };
+    style.package = pkgs.kdePackages.breeze;  
 
+  };
+  
   home.sessionVariables = {
     GTK_THEME = "Breeze-Dark";
     NIX_CONFIG = "experimental-features = nix-command flakes";
     FLAKE = "/etc/nixos";
+   
   };
 }

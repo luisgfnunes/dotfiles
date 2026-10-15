@@ -11,14 +11,19 @@
 
     umbriel.url = "github:noctalia-dev/umbriel/cachix";
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
-      
+   
+    antigravity-nix = {
+      url = "github:jacopone/antigravity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+   
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
   
-  outputs = { self, nixpkgs, disko, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, disko, home-manager, antigravity-nix, ... }@inputs: {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

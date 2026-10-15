@@ -35,6 +35,7 @@
     python3
     proton-vpn
     wireguard-tools
+    godot_4	
     
     # Utilitários de Terminal & Sistema
     kitty

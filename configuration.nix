@@ -71,10 +71,6 @@
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
     ];
-    config = {
-      common.default = [ "gtk" ];
-      umbriel.default = [ "umbriel" "gtk" ];
-    };
   };     
   
   # --- PACOTES GLOBAIS DE SISTEMA ---
@@ -91,7 +87,6 @@
     htop
     power-profiles-daemon
     wireplumber
-    inputs.umbriel.packages.${pkgs.stdenv.hostPlatform.system}.default 
   ];
 
   # --- FONTES ---
@@ -135,17 +130,11 @@
     };
   };
   
+  # GNOME & GDM
   services.xserver.enable = true;
-  services.displayManager.sessionPackages = [ pkgs.umbriel ];  
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd umbriel";
-        user = "greeter";
-      };
-    };
-  };
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
+
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;  
   services.pipewire = {
@@ -165,7 +154,6 @@
 
   # --- PROGRAMAS DO SISTEMA ---
   programs.firefox.enable = true;
-  programs.umbriel.enable = true;
   programs.fish.enable = true;
  
   programs.nh = {
@@ -175,28 +163,24 @@
     flake = "/etc/nixos";
   }; 
   
-  programs.noctalia = {
-    enable = true;
-    recommendedServices.enable = true;      
-  };
-
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
-
+    
   # --- NIX SETTINGS & CACHES ---
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
     trusted-users = [ "root" "blue" ];    
-    substituters = [ "https://cache.nixos.org" "https://noctalia.cachix.org" "https://umbriel.cachix.org" ];
+    
+    # Substituters nativos do NixOS
+    substituters = [ "https://cache.nixos.org" ];
     trusted-public-keys = [ 
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" 
-      "umbriel.cachix.org-1:JfNq/2yg2S6D6z4Z2dVSZrZlDPQTKtexB6GAVLD98nw="
     ];
   };
+  nix.settings.auto-optimise-store = true;
  
   nix.extraOptions = ''
     !include /root/nix-github-token.conf

@@ -9,9 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    umbriel.url = "github:noctalia-dev/umbriel/cachix";
-    noctalia.url = "github:noctalia-dev/noctalia/cachix";
-   
     antigravity-nix = {
       url = "github:jacopone/antigravity-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,8 +29,6 @@
 
         modules = [
           inputs.disko.nixosModules.disko
-          inputs.umbriel.nixosModules.default
-          inputs.noctalia.nixosModules.default
           ./disko-config.nix
           ./hardware-configuration.nix
           ./configuration.nix

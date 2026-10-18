@@ -87,6 +87,12 @@
     htop
     power-profiles-daemon
     wireplumber
+    kdePackages.sddm-kcm
+    
+    (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
+      [General]
+      background=${./wallpaper.png}
+    '')
   ];
 
   # --- FONTES ---
@@ -130,10 +136,14 @@
     };
   };
   
-  # GNOME & GDM
+  # KDE Plasma 6 & SDDM
   services.xserver.enable = true;
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    theme = "Breeze"; 
+  };
+  services.desktopManager.plasma6.enable = true;
 
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;  

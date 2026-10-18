@@ -21,8 +21,8 @@ Meu setup dinâmico, rico em animações e altamente customizado.
 ### 3. [nix_os](https://github.com/LuisGFNunes/dotfiles/tree/dots/umbriel) [Setup Atual]
 Meu setup declarativo-atômico focado em produtividade e estabilidade
 * **Sistema Operacional:** NixOS
-* **Compositor (Wayland):** Umbriel & KDE Plasma
-* **Ambiente/Interface:** Noctalia
+* **Compositor (Wayland):** KDE Plasma
+* **Ambiente/Interface:** KWin
 
 ---
 

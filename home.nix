@@ -37,7 +37,6 @@
     inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.google-antigravity-ide
  
     # Utilitários de Terminal & Sistema
-    nautilus
     ripgrep
     fzf
     scrcpy

@@ -47,5 +47,8 @@
   home.sessionVariables = {
     NIX_CONFIG = "experimental-features = nix-command flakes";
     FLAKE = "/etc/nixos";
+
+    NIXOS_OZONE_WL = "1";
+    MOZ_ENABLE_WAYLAND = "1";
   };
 }

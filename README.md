@@ -4,7 +4,7 @@ Minha configuração declarativa para **NixOS** gerenciada via **Nix Flakes**, *
 
 ---
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4a669f41-6160-4860-9472-c82eacc8e5eb" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1d5be13d-903c-4702-88a6-3f4c257d590f" />
 
 ---
 
@@ -12,8 +12,8 @@ Minha configuração declarativa para **NixOS** gerenciada via **Nix Flakes**, *
 
 - **OS**: NixOS (Branch Unstable)
 - **Gerenciador de Partição**: [Disko](https://github.com/nix-community/disko) (Btrfs com compressão `zstd`)
-- **Compositor / Ambiente**: [Umbriel](https://github.com/noctalia-dev/umbriel)
-- **Display Manager**: tuigreet (Wayland)
+- **Compositor / Ambiente**: KDE Plasma 6
+- **Display Manager**: SDDM (Wayland)
 - **Gerenciamento de Sistema**: Nix Flakes + Git + **Nix Helper (nh)**
 
 

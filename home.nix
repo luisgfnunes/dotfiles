@@ -21,10 +21,13 @@
     pavucontrol
     mpv
     cava
+    kurve
     grim
     slurp
     wl-clipboard
     obs-studio    
+    pkgsRocm.blender 
+    ffmpeg-full
 
     # Desenvolvimento & Programação
     vscode
@@ -32,7 +35,6 @@
     python3
     proton-vpn
     wireguard-tools
-    godot_4	
     inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.google-antigravity
     inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.google-antigravity-ide
  
@@ -41,7 +43,8 @@
     fzf
     scrcpy
     android-tools
-    dconf   
+    dconf
+    fuse3
   ];
  
   home.sessionVariables = {

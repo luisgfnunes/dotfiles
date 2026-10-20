@@ -41,8 +41,10 @@
               
               useGlobalPkgs = true;
               useUserPackages = true;
+              
               backupFileExtension = "backup";
-
+              overwriteBackup = true;          
+  
               users.blue = import ./home.nix;
             };
           }

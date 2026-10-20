@@ -153,7 +153,15 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
-    wireplumber.enable = true;
+  
+    extraConfig.pipewire."92-low-latency" = {
+      "context.properties" = {
+        "default.clock.rate" = 48000;
+        "default.clock.quantum" = 128; # mude para 256 se necessario
+        "default.clock.min-quantum" = 32;
+        "default.clock.max-quantum" = 1024;
+      };
+    };
   };
   
   services.power-profiles-daemon.enable = true;
@@ -163,13 +171,15 @@
   services.udisks2.enable = true; 
 
   # --- PROGRAMAS DO SISTEMA ---
+  programs.nix-ld.enable = true;
   programs.firefox.enable = true;
   programs.fish.enable = true;
  
   programs.nh = {
     enable = true;
     clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 3";
+    clean.dates = "weekly";
+    clean.extraArgs = "--keep-since 5d --keep 3";
     flake = "/etc/nixos";
   }; 
   

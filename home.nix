@@ -1,7 +1,7 @@
 { inputs, pkgs, lib, ... }: 
 {
-  home.username = "blue";
-  home.homeDirectory = "/home/blue";
+  home.username = "hikari";
+  home.homeDirectory = "/home/hikari";
   home.stateVersion = "26.05"; 
  
   programs.home-manager.enable = true;
@@ -22,12 +22,19 @@
     mpv
     cava
     kurve
-    grim
-    slurp
-    wl-clipboard
-    obs-studio    
-    pkgsRocm.blender 
+    #obs-studio    
+    #pkgsRocm.blender 
     ffmpeg-full
+
+    # Jogos
+    (prismlauncher.override {
+      jdks = [
+        jdk8
+        jdk17
+        jdk21
+        jdk25
+      ];
+    })
 
     # Desenvolvimento & Programação
     vscode
@@ -35,8 +42,8 @@
     python3
     proton-vpn
     wireguard-tools
-    inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.google-antigravity
-    inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.google-antigravity-ide
+    #inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.google-antigravity
+    #inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.google-antigravity-ide
  
     # Utilitários de Terminal & Sistema
     ripgrep
@@ -51,6 +58,7 @@
     NIX_CONFIG = "experimental-features = nix-command flakes";
     FLAKE = "/etc/nixos";
 
+    # Força renderização Wayland nativa em apps Electron e Firefox
     NIXOS_OZONE_WL = "1";
     MOZ_ENABLE_WAYLAND = "1";
   };

@@ -1,6 +1,6 @@
 # ❄️ NixOS Configuration Flake
 
-Minha configuração declarativa para **NixOS** gerenciada via **Nix Flakes**, **Disko** e o compositor Wayland.
+Minha configuração declarativa para **NixOS** gerenciada via **Nix Flakes** e **Home Manager**, utilizando o **KDE Plasma 6** nativo no Wayland.
 
 ---
 
@@ -8,35 +8,33 @@ Minha configuração declarativa para **NixOS** gerenciada via **Nix Flakes**, *
 
 ---
 
-## 🛠️--- Arquitetura do Sistema ---
+## 🛠️ Arquitetura do Sistema
 
 - **OS**: NixOS (Branch Unstable)
-- **Gerenciador de Partição**: [Disko](https://github.com/nix-community/disko) (Btrfs com compressão `zstd`)
-- **Compositor / Ambiente**: KDE Plasma 6
+- **Sistema de Arquivos**: BTRFS (subvolumes nativos) com compressão `zstd`
+- **Compositor / Ambiente**: KDE Plasma 6 (Wayland)
 - **Display Manager**: SDDM (Wayland)
-- **Gerenciamento de Sistema**: Nix Flakes + Git + **Nix Helper (nh)**
-
+- **Gerenciamento de Sistema**: Nix Flakes + Home Manager + **Nix Helper (nh)**
 
 ---
 
-## --- Estrutura de Arquivos ---
+## 📂 Estrutura de Arquivos
 
 ```text
 /etc/nixos/
-├── flake.nix                  # Ponto de entrada das dependências e configurações
+├── flake.nix                  # Ponto de entrada das dependências (NixOS + Home Manager)
 ├── flake.lock                 # Trava de versões exatas das dependências
-├── configuration.nix          # Configurações gerais do sistema e pacotes
-├── hardware-configuration.nix # Módulos de kernel e drivers de hardware
-├── disko-config.nix           # Esquema de particionamento Btrfs via Disko
-└── noctalia-config.nix        # Configurações de usuário, temas (GTK/Qt) e Home Manager
+├── configuration.nix          # Configurações gerais do sistema, boot e pacotes
+├── hardware-configuration.nix # Módulos de kernel, drivers e UUIDs do BTRFS
+└── home.nix                   # Configurações da usuária (hikari), pacotes e variáveis de ambiente
 
 ```
 
 ---
 
-## --- Comandos Rápidos (Nix Helper) ---
+## 🚀 Comandos Rápidos (Nix Helper)
 
-Comando | O que faz |
+| Comando | O que faz |
 | --- | --- |
 | **`nh os switch`** | Aplica imediatamente qualquer alteração nos arquivos de configuração do sistema. |
 | **`nh os switch -u`** | Atualiza os repositórios (`flake.lock`) e aplica as versões mais recentes dos programas. |

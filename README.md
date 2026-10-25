@@ -4,7 +4,7 @@ Minha configuração declarativa para **NixOS** gerenciada via **Nix Flakes** e 
 
 ---
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1d5be13d-903c-4702-88a6-3f4c257d590f" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2fb5c9d8-a691-4392-93ec-96635103bf8e" />
 
 ---
 

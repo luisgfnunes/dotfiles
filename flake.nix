@@ -3,7 +3,7 @@
   
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    
+   
     #antigravity-nix = {
     #  url = "github:jacopone/antigravity-nix";
     #  inputs.nixpkgs.follows = "nixpkgs";
@@ -25,7 +25,7 @@
         modules = [
           ./hardware-configuration.nix
           ./configuration.nix
-          
+   
           # Módulo do Home Manager
           home-manager.nixosModules.home-manager
           {

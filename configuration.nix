@@ -92,6 +92,54 @@
   # --- PROGRAMAS & SERVIÇOS ---
   programs.firefox.enable = true;
   programs.fish.enable = true;
+  programs.nix-ld.enable = true;
+  programs.appimage.binfmt = true; 
+  
+  # Biblioteca padrão para TODOS os apps genéricos/AppImages
+  programs.nix-ld.libraries = with pkgs; [
+    # Sistema e Core
+    stdenv.cc.cc
+    zlib
+    fuse3
+    expat
+    e2fsprogs       
+    libgcrypt       
+    libgpg-error    
+    
+    # Fontes e Gráficos (O que barrou o MuseScore por último)
+    fontconfig
+    freetype
+    libGL
+    libGLU
+    libxkbcommon
+    dbus
+    icu    
+
+    # Áudio
+    alsa-lib
+    pipewire
+    libjack2
+    
+    # Interface e Janelas (X11 e dependências comuns)
+    glib
+    nss
+    nspr
+    libX11
+    libXext
+    libXrender
+    libXi
+    libXtst
+    libXcursor
+    libXrandr
+    libXinerama
+    libXfixes
+    libXdamage
+    libXcomposite
+    libICE
+    libSM
+  ];
+ 
+
   services.printing.enable = true;
 
   programs.nh = {
@@ -114,6 +162,6 @@
     trusted-users = [ "root" "hikari" ];
   };
   nix.settings.auto-optimise-store = true;
-
+  
   system.stateVersion = "26.05";
 }

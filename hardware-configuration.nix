@@ -17,7 +17,7 @@
     { device = "/dev/disk/by-uuid/3f7e4c73-12ea-4208-a3a2-2fe7f604ea14";
       fsType = "btrfs";
       options = [ "compress=zstd" "noatime" ];
-    };
+    };  
 
   fileSystems."/home" =
     { device = "/dev/disk/by-uuid/3f7e4c73-12ea-4208-a3a2-2fe7f604ea14";

@@ -26,7 +26,7 @@ Minha configuração declarativa para **NixOS** gerenciada via **Nix Flakes** e 
 ├── flake.lock                 # Trava de versões exatas das dependências
 ├── configuration.nix          # Configurações gerais do sistema, boot e pacotes
 ├── hardware-configuration.nix # Módulos de kernel, drivers e UUIDs do BTRFS
-└── home.nix                   # Configurações da usuária (hikari), pacotes e variáveis de ambiente
+└── home.nix                   # Configurações, pacotes e variáveis de ambiente (username: hikari)
 
 ```
 
